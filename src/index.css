@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #3B82F6;
+  --color-brand-secondary: #F43F5E;
+  --color-brand-accent: #8B5CF6;
+  --color-brand-warm: #FBBF24;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Dynamic Variables */
+  --accent: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.1);
+  --accent-deep: #2563eb;
+  --app-text: #f43f5e; /* Default rose text */
+}
+
+/* Text Themes */
+.text-theme-rose { --app-text: #f43f5e; }
+.text-theme-blue { --app-text: #3b82f6; }
+.text-theme-emerald { --app-text: #10b981; }
+.text-theme-amber { --app-text: #f59e0b; }
+.text-theme-white { --app-text: #ffffff; }
+.text-theme-red { --app-text: #ff0000; }
+
+.theme-blue {
+  --accent: #3b82f6;
+  --accent-soft: rgba(59, 130, 246, 0.1);
+  --accent-deep: #2563eb;
+}
+
+.theme-rose {
+  --accent: #e11d48;
+  --accent-soft: rgba(225, 29, 72, 0.2);
+  --accent-deep: #be123c;
+}
+
+.theme-red {
+  --accent: #ff0000;
+  --accent-soft: rgba(255, 0, 0, 0.2);
+  --accent-deep: #cc0000;
+}
+
+.theme-emerald {
+  --accent: #10b981;
+  --accent-soft: rgba(16, 185, 129, 0.1);
+  --accent-deep: #059669;
+}
+
+.theme-amber {
+  --accent: #f59e0b;
+  --accent-soft: rgba(245, 158, 11, 0.1);
+  --accent-deep: #d97706;
+}
+
+/* Base utility for dynamic accent */
+.bg-accent { background-color: var(--accent); }
+.text-accent { color: var(--accent); }
+.border-accent { border-color: var(--accent); }
+.from-accent { --tw-gradient-from: var(--accent); }
+.to-accent { --tw-gradient-to: var(--accent); }
+
+@layer base {
+  :root {
+    --sat: env(safe-area-inset-top);
+    --sar: env(safe-area-inset-right);
+    --sab: env(safe-area-inset-bottom);
+    --sal: env(safe-area-inset-left);
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased transition-colors duration-300;
+    overscroll-behavior-y: contain;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+.dark body {
+  @apply bg-black;
+  color: var(--app-text);
+}
+
+.app-text-color {
+  color: var(--app-text);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

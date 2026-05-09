@@ -1,0 +1,6 @@
+{
+  "name": "GYMLINK",
+  "description": "Cinematic home workouts and solo gym companion with HD video tutorials and progress tracking.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": []
+}
